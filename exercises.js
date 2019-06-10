@@ -5,7 +5,14 @@
  * @param {Array} // [1,2,3]
  * @return {Array} // [2,4,6]
  */
-var doubleArray;
+var doubleArray = function doubleArray(Array) {
+  let emptyArry = [];
+  for (let i = 0; i < Array.length; i++) {
+    emptyArry.push(Array[i]*2)
+  }
+  return emptyArry;
+}
+console.log(doubleArray([1,2,3]));
 
 /* #sumArrays
  *
@@ -15,7 +22,16 @@ var doubleArray;
  * @param {Array}
  * @return {Number}
  */
-var sumArrays;
+var sumArrays = function sumArrays(arry1, arry2) {
+  let sumArry1 = 0;
+  let sumArry2 = 0;
+  for (let i = 0; i < arry1.length; i++) {
+    sumArry1+=arry1[i];
+    sumArry2+=arry2[i];
+  }
+  return sumArry1 + sumArry2;
+}
+console.log(sumArrays([1,2,3],[3,2,1]));
 
 /* #stringCount
  *
@@ -24,8 +40,11 @@ var sumArrays;
  * @param {String}
  * @return {Number}
  */
-var stringCount;
-
+var stringCount = function stringCount(str) {
+  let stringToArray = str.split('');
+  return stringToArray.length;
+}
+console.log(stringCount("hello"))
 /* #arrayLength
  *
  * Takes in an array and returns the length of the array.
@@ -33,7 +52,10 @@ var stringCount;
  * @param {Array}
  * @return {Number}
  */
-var arrayLength;
+var arrayLength = function arrayLength(Array) {
+  return Array.length
+}
+console.log(arrayLength([1,2,3,4,5,6,1,2]));
 
 /* #countAll
  *
@@ -42,7 +64,15 @@ var arrayLength;
  * @param {Array}
  * @return {Number}
  */
-var countAll;
+var countAll = function countAll(Array) {
+  let sumArry = 0;
+  for (let i = 0; i < Array.length; i++) {
+    sumArry+=Array[i];
+  }
+  return sumArry
+}
+console.log(countAll([1,2,3,4,5,6]));
+
 
 /* #countStrings
  *
@@ -51,8 +81,15 @@ var countAll;
  * @param {Array}
  * @return {Array}
  */
-var countStrings;
-
+var countStrings = function countStrings(Array) {
+  let emptyArry = [];
+  for (i = 0; i < Array.length; i++) {
+    let splitString = Array[i].split('');
+    emptyArry.push(splitString.length);
+  }
+  return emptyArry;
+};
+console.log("countStrings" + countStrings(["hello", "whatsup", "devleague"]));
 /* #countAllStrings
  *
  * Takes in an array of strings and returns the sum of all string lengths.
@@ -60,7 +97,16 @@ var countStrings;
  * @param {Array}
  * @return {Number}
  */
-var countAllStrings;
+var countAllStrings = function countAllStrings(Array) {
+  let sumArry = 0;
+  let newArr = countStrings(Array);
+  for (let i = 0; i < Array.length; i++) {
+    sumArry+=newArr[i];
+  }
+  return sumArry
+};
+console.log(countAllStrings(["hello", "whatsup", "devleague"]));
+
 
 /* #convertToArray
  *
@@ -69,8 +115,17 @@ var countAllStrings;
  * @param {Object}
  * @return {Array}
  */
-var convertToArray;
-
+var convertToArray = function convertToArray(Object) {
+  let Object = {};
+  let emptyArry = [];
+  for (x in Object) {
+    console.log(typeof x);
+    emptyArry = emptyArry.push(x);
+    console.log(emptyArry)
+  }
+  
+};
+console.log(convertToArray({Name: 'Kevin', Age: 28, Sex: 'Male'}))
 /* #objectSize
  *
  * Takes in an object and returns the number of key value pairs in the object.
@@ -364,13 +419,13 @@ var tupleConvertToObject;
 
 
 module.exports = {
-  doubleArray: null,
-  sumArrays: null,
-  stringCount: null,
-  arrayLength: null,
-  countAll: null,
-  countStrings: null,
-  countAllStrings: null,
+  doubleArray: doubleArray,
+  sumArrays: sumArrays,
+  stringCount: stringCount,
+  arrayLength: arrayLength,
+  countAll: countAll,
+  countStrings: countStrings,
+  countAllStrings: countAllStrings,
   convertToArray: null,
   objectSize: null,
   createZeroFilledArray: null,
