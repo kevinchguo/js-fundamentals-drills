@@ -83,13 +83,13 @@ console.log(countAll([1,2,3,4,5,6]));
  */
 var countStrings = function countStrings(Array) {
   let emptyArry = [];
-  for (i = 0; i < Array.length; i++) {
+  for (let i = 0; i < Array.length; i++) {
     let splitString = Array[i].split('');
     emptyArry.push(splitString.length);
   }
   return emptyArry;
 };
-console.log("countStrings" + countStrings(["hello", "whatsup", "devleague"]));
+console.log(countStrings(["hello", "whatsup", "devleague"]));
 /* #countAllStrings
  *
  * Takes in an array of strings and returns the sum of all string lengths.
@@ -97,10 +97,10 @@ console.log("countStrings" + countStrings(["hello", "whatsup", "devleague"]));
  * @param {Array}
  * @return {Number}
  */
-var countAllStrings = function countAllStrings(Array) {
+var countAllStrings = function countAllStrings(arry) {
   let sumArry = 0;
-  let newArr = countStrings(Array);
-  for (let i = 0; i < Array.length; i++) {
+  let newArr = countStrings(arry);
+  for (let i = 0; i < arry.length; i++) {
     sumArry+=newArr[i];
   }
   return sumArry
@@ -108,22 +108,25 @@ var countAllStrings = function countAllStrings(Array) {
 console.log(countAllStrings(["hello", "whatsup", "devleague"]));
 
 
-/* #convertToArray
+/* #convertToArray sameprob:objvalues
  *
  * Takes in an object and returns all the values of the object in an array.
  *
  * @param {Object}
  * @return {Array}
  */
-var convertToArray = function convertToArray(Object) {
-  let Object = {};
+var convertToArray = function convertToArray(obj) {
   let emptyArry = [];
-  for (x in Object) {
-    console.log(typeof x);
-    emptyArry = emptyArry.push(x);
-    console.log(emptyArry)
+  let emptyArry2 = [];
+  for (let x in obj) {
+    emptyArry2.push(x);
   }
-  
+  // console.log(emptyArry2.length)
+  // console.log(Object.keys(Object)[1])
+  for (let i = 0; i < emptyArry2.length; i++) {
+    emptyArry.push(obj[Object.keys(obj)[i]])
+  }
+  return emptyArry;
 };
 console.log(convertToArray({Name: 'Kevin', Age: 28, Sex: 'Male'}))
 /* #objectSize
@@ -133,8 +136,14 @@ console.log(convertToArray({Name: 'Kevin', Age: 28, Sex: 'Male'}))
  * @param {Object}
  * @return {Number}
  */
-var objectSize;
-
+var objectSize = function objectSize(obj) {
+  let emptyArry = [];
+  for(let x in obj) {
+    emptyArry.push(obj.x);
+  }
+  return emptyArry.length
+};
+console.log(objectSize({Name: 'Kevin', Age: 28, Sex: 'Male'}))
 /* #createZeroFilledArray
  *
  * Takes in a number and fills an array with that number of zeroes.
@@ -142,7 +151,15 @@ var objectSize;
  * @param {Number}
  * @return {Array}
  */
-var createZeroFilledArray;
+var createZeroFilledArray = function createZeroFilledArray(num) {
+  let zeroArry = [];
+  let zero = 0;
+  for (let i = 0; i < num; i++) {
+    zeroArry.push(zero)
+  }
+  return zeroArry
+};
+console.log(createZeroFilledArray(5))
 
 /* #poppedArray
  *
@@ -151,8 +168,14 @@ var createZeroFilledArray;
  * @param {Array}
  * @return {Array}
  */
-var poppedArray;
-
+var poppedArray = function  poppedArray(arry) {
+  let emptyArry = [];
+  for (let i = 0; i < arry.length - 1; i++) {
+    emptyArry.push(arry[i])
+  }
+  return emptyArry;
+};
+console.log(poppedArray([1,2,3,4,5,6]))
 /* #splitString
  *
  * Takes in a string and returns an array of each individual character in the string.
@@ -160,7 +183,14 @@ var poppedArray;
  * @param {String}
  * @return {Array}
  */
-var splitString;
+var splitString = function splitString(str) {
+  let emptyArry = [];
+  for (let i = 0; i < str.length; i++) {
+    emptyArry.push(str[i])
+  }
+  return emptyArry
+};
+console.log(splitString("helloworld"));
 
 /* #lengthOfLast
  *
@@ -169,8 +199,11 @@ var splitString;
  * @param {Array}
  * @return {Number}
  */
-var lengthOfLast;
-
+var lengthOfLast = function lengthOfLast(arry) {
+    //console.log(countStrings(arry)) to see if returns length of all strings in array
+    return countStrings(arry)[arry.length - 1]
+};
+console.log(lengthOfLast(["hello","world","devleague"]))
 /* #sumBelowTen
  *
  * Takes in an array of numbers and returns the sum of all numbers below 10.
@@ -178,8 +211,21 @@ var lengthOfLast;
  * @param {Array}
  * @return {Number}
  */
-var sumBelowTen;
-
+var sumBelowTen = function sumBelowTen(arry) {
+  let newArr = [];
+  let sumArr = 0;
+    for (let i = 0; i < arry.length; i++) {
+      if (arry[i] < 10) {
+        newArr.push(arry[i])
+      }
+    }
+    for (let x = 0; x < newArr.length; x++) {
+      console.log(newArr[x])
+      sumArr+=newArr[x]
+    }
+    return sumArr;
+};
+console.log("==================" + sumBelowTen([5,5,15]));
 /* #moreThanTenLetters
  *
  * Takes in an array of strings and returns the amount of elements that have more than ten letters.
@@ -187,7 +233,19 @@ var sumBelowTen;
  * @param {Array}
  * @return {Number}
  */
-var moreThanTenLetters;
+var moreThanTenLetters = function moreThanTenLetters(arry) {
+  let emptyArry = [];
+  // console.log(countStrings(arry)[0])
+  // console.log(arry.length)
+  for (let i = 0; i < arry.length; i++) {
+    if (countStrings(arry)[i] > 10) {
+      // console.log(countStrings(arry)[i])
+      emptyArry.push(countStrings(arry)[i])
+    }
+  }
+  return emptyArry.length
+};
+console.log(moreThanTenLetters(["hello","worasdasdld","devleagueeee"]));
 
 /* #multiplyAll
  *
@@ -196,8 +254,14 @@ var moreThanTenLetters;
  * @param {Array}
  * @return {Number}
  */
-var multiplyAll;
-
+var multiplyAll = function multiplyAll(arry) {
+  let product = 1;
+  for (let i = 0; i < arry.length; i++) {
+    product = product * arry[i]
+  }
+  return product
+};
+console.log(multiplyAll([5,4,3,2,1]))
 /* #sumAllPositive
  *
  * Takes in an array of numbers and returns the sum of all non-negative numbers.
@@ -205,8 +269,16 @@ var multiplyAll;
  * @param {Array}
  * @return {Number}
  */
-var sumAllPositive;
-
+var sumAllPositive = function sumAllPositive(arry) {
+  let sum = 0;
+  for (let i = 0; i < arry.length; i++) {
+    if (arry[i] >= 0) {
+      sum+=arry[i]
+    }
+  }
+  return sum;
+};
+console.log(sumAllPositive([-1,-2,-1,2,2]))
 /* #stringCountBelowThree
  *
  * Takes in an array of strings and returns the amount of strings that have three characters or less.
@@ -214,7 +286,17 @@ var sumAllPositive;
  * @param {Array}
  * @return {Number}
  */
-var stringCountBelowThree;
+var stringCountBelowThree = function stringCountBelowThree(arry) {
+  let emptyArry = [];
+  for (let i = 0; i < arry.length; i++) {
+    if (countStrings(arry)[i] <= 3) {
+      emptyArry.push(countStrings(arry)[i]);
+    }
+  }
+  console.log(emptyArry)
+  return emptyArry.length
+};
+console.log(stringCountBelowThree(["a","ab","abc","abcd"]))
 
 /* #countObjects
  *
@@ -223,7 +305,10 @@ var stringCountBelowThree;
  * @param {Array}
  * @return {Number}
  */
-var countObjects;
+var countObjects = function countObjects(arry) {
+  return arry.length
+};
+console.log(countObjects([{Name: "Kevin", Age: 28, Sex: "Male"}, {Fruits: "Orange", Color: "Blue"}]))
 
 /* #getObjectKeys
  *
@@ -232,16 +317,29 @@ var countObjects;
  * @param {Object}
  * @return {Array}
  */
-var getObjectKeys;
+var getObjectKeys = function getObjectKeys(obj) {
+  let emptyArry = [];
+  for (let x in obj) {
+    emptyArry.push(x)
+  }
+  return emptyArry;
+};
+console.log(getObjectKeys({Name: "Kevin", Age: 28, Sex: "Male"}))
 
-/* #getObjectValues
+/* #getObjectValues sameprob:objvalues
  *
  * Takes in an object and returns an array of all the object's values.
  *
  * @param {Object}
  * @return {Array}
  */
-var getObjectValues;
+var getObjectValues = function getObjectValues(obj) {
+  // let emptyArry = [];
+  // convertToArray(obj)
+  return convertToArray(obj);
+};
+
+console.log(getObjectValues({Name: "Kevin", Age: 28, Sex: "Male"}));
 
 /* #makeObject
  *
@@ -251,7 +349,14 @@ var getObjectValues;
  * @param {String}
  * @return {Object}
  */
-var makeObject;
+var makeObject = function makeObject(str1, str2) {
+  let obj = {
+    
+  }
+  obj[str1] = str2
+  return obj
+};
+console.log(makeObject("Greetings", "Hello World"))
 
 /* #makeObjectReverse
  *
@@ -261,7 +366,14 @@ var makeObject;
  * @param {String}
  * @return {Object}
  */
-var makeObjectReverse;
+var makeObjectReverse = function makeObjectReverse(str1, str2) {
+   let obj = {
+
+   }
+   obj[str2] = str1;
+   return obj
+};
+console.log(makeObjectReverse("Greetings", "Hello World"))
 
 /* #tupleToObject
  *
@@ -270,7 +382,14 @@ var makeObjectReverse;
  * @param {Array}
  * @return {Object}
  */
-var tupleToObject;
+var tupleToObject = function tupleToObject(arry) {
+  let obj = {
+
+  }
+  obj[arry[0]] = arry[1];
+  return obj
+};
+console.log(tupleToObject(["Greetings", "Hello World"]))
 
 /* #tupleToObjectReverse
  *
@@ -426,31 +545,31 @@ module.exports = {
   countAll: countAll,
   countStrings: countStrings,
   countAllStrings: countAllStrings,
-  convertToArray: null,
-  objectSize: null,
-  createZeroFilledArray: null,
-  poppedArray: null,
-  splitString: null,
-  lengthOfLast: null,
-  sumBelowTen: null,
-  moreThanTenLetters: null,
-  multiplyAll: null,
-  sumAllPositive: null,
-  stringCountBelowThree: null,
-  countObjects: null,
-  getObjectKeys: null,
-  getObjectValues: null,
-  makeObject: null,
-  makeObjectReverse: null,
-  tupleToObject: null,
-  tupleToObjectReverse: null,
-  strToKeys: null,
-  getValues: null,
-  getKeys: null,
-  objectToArray: null,
-  arrayToObject: null,
-  arraysToObject: null,
-  objectsToTuples: null,
+  convertToArray: convertToArray,
+  objectSize: objectSize,
+  createZeroFilledArray: createZeroFilledArray,
+  poppedArray: poppedArray,
+  splitString: splitString,
+  lengthOfLast: lengthOfLast,
+  sumBelowTen: sumBelowTen,
+  moreThanTenLetters: moreThanTenLetters,
+  multiplyAll: multiplyAll,
+  sumAllPositive: sumAllPositive,
+  stringCountBelowThree: stringCountBelowThree,
+  countObjects: countObjects,
+  getObjectKeys: getObjectKeys,
+  getObjectValues: getObjectValues,
+  makeObject: makeObject,
+  makeObjectReverse: makeObjectReverse,
+  tupleToObject: tupleToObject,
+  tupleToObjectReverse: tupleToObjectReverse,
+  strToKeys: strToKeys,
+  getValues: getValues,
+  getKeys: getKeys,
+  objectToArray: objectToArray,
+  arrayToObject: arrayToObject,
+  arraysToObject: arraysToObject,
+  objectsToTuples: objectsToTuples,
   mapArrayValues: null,
   mapStringCounts: null,
   arrayToObjectNums: null,
