@@ -398,7 +398,14 @@ console.log(tupleToObject(["Greetings", "Hello World"]))
  * @param {Array}
  * @return {Object}
  */
-var tupleToObjectReverse;
+var tupleToObjectReverse = function tupleToObjectReverse(arry) {
+  let obj = {
+
+  }
+  obj[arry[1]] = arry[0];
+  return obj;
+};
+console.log(tupleToObjectReverse(["Greetings", "Hello World"]));
 
 /* #strToKeys
  *
@@ -407,7 +414,17 @@ var tupleToObjectReverse;
  * @param {Array}
  * @return {Object}
  */
-var strToKeys;
+var strToKeys = function stringToKeys(arry) {
+  let obj = {
+
+  }
+  for (let i = 0; i < arry.length; i++) {
+    console.log(arry[i])
+    obj[arry[i]] = 0;
+  }
+  return obj;
+};
+console.log(strToKeys(["Name", "Age", "Sex"]));
 
 /* #getValues
  *
@@ -416,8 +433,15 @@ var strToKeys;
  * @param {Object}
  * @return {Array}
  */
-var getValues;
-
+var getValues = function getValues(obj) {
+  let arry = [];
+  for (let x in obj) {
+    // console.log(obj[x])
+    arry.push(obj[x])
+  }
+  return arry;
+};
+console.log(getValues({Name: "Kevin", Age: 28, Sex: "Male"}))
 /* #getKeys
  *
  * Takes in an object and returns an array of the object's keys.
@@ -425,8 +449,14 @@ var getValues;
  * @param {Object}
  * @return {Array}
  */
-var getKeys;
-
+var getKeys = function getKeys(obj) {
+  let arry = [];
+  for (let x in obj) {
+    arry.push(x)
+  }
+  return arry
+};
+console.log(getKeys({Name: "Kevin", Age: 28, Sex: "Male"}))
 /* #objectToArray
  *
  * Takes in an object and returns an array of tuples where each tuple has 
@@ -435,8 +465,19 @@ var getKeys;
  * @param {Object}
  * @return {Array}
  */
-var objectToArray;
-
+var objectToArray = function objectToArray(obj) {
+  let objLength = [];
+  let emptyArry = [];
+  for (let x in obj) {
+    objLength.push(x)
+  }
+  for (let i = 0; i < objLength.length; i++) {
+    
+    
+  }
+  return emptyArry
+};
+console.log(objectToArray({Name: "Kevin", Age: 28, Sex: "Male"}))
 /* #arrayToObject
  *
  * takes in an array and returns an object with keys set to the elements in the array and
