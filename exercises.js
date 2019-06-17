@@ -621,7 +621,15 @@ console.log(stringToKeys("hello world"))
  * @param {Array}
  * @return {Object}
  */
-var charCountMap;
+var charCountMap = function charCountMap(arry) {
+  let obj = {
+
+  }
+  for (let x in arry) {
+    obj[arry[x]] = arry[x].length
+  }
+return obj;
+};
 
 /* #frequencyMap
  *
