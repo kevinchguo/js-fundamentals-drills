@@ -466,14 +466,10 @@ console.log(getKeys({Name: "Kevin", Age: 28, Sex: "Male"}))
  * @return {Array}
  */
 var objectToArray = function objectToArray(obj) {
-  let objLength = [];
   let emptyArry = [];
   for (let x in obj) {
-    objLength.push(x)
-  }
-  for (let i = 0; i < objLength.length; i++) {
-    
-    
+    arr = [x,obj[x]]
+    emptyArry.push(arr)
   }
   return emptyArry
 };
@@ -486,7 +482,16 @@ console.log(objectToArray({Name: "Kevin", Age: 28, Sex: "Male"}))
  * @param {Array}
  * @return {Object}
  */
-var arrayToObject;
+var arrayToObject = function arrayToObject(arry) {
+  let obj = {
+    
+  }
+    for (let i = 0; i < arry.length; i++) {
+      obj[arry[i]] = false
+    }
+  return obj;
+};
+console.log(arrayToObject([1,2,3,4,5]))
 
 /* #arraysToObject
  *
@@ -497,7 +502,15 @@ var arrayToObject;
  * @param {Array}
  * @return {Object}
  */
-var arraysToObject;
+var arraysToObject = function arraysToObject(arry1, arry2) {
+  let obj = {
+
+  }
+    for (let i = 0; i < arry1.length; i++) {
+      obj[arry1[i]] = arry2[i]
+    }
+  return obj
+};
 
 /* #objectsToTuples
  *
@@ -507,7 +520,17 @@ var arraysToObject;
  * @param {Object}
  * @return {Array}
  */
-var objectsToTuples;
+var objectsToTuples = function objectsToTuples(obj1, obj2) {
+  let answer = [];
+  for (let x in obj1) {
+    answer.push([x,obj1[x]])
+  }
+  for (let y in obj2) {
+    answer.push([y,obj2[y]]);
+  }
+  return answer;
+};
+console.log(objectsToTuples({Name: "Kevin", Age: 28, Sex: "Male"},{Name: "Kevin", Age: 28, Sex: "Male"}), "==================================================")
 
 /* #mapArrayValues
  *
@@ -516,8 +539,20 @@ var objectsToTuples;
  * @param {Array}
  * @return {Object}
  */
-var mapArrayValues;
+var mapArrayValues = function mapArrayValues(arry) {
+  let obj = {
 
+  }
+  // if (typeof arry[0] === typeof "string") {
+    for (let x in arry) {
+      //obj[x] in array access the index of the array
+      //obj[arry[x]] access the value in array
+     obj[arry[x]] = true;
+    }
+  // }
+ return obj
+};
+console.log(mapArrayValues(["hello","goodbye"]))
 /* #mapStringCounts
  *
  * takes in an array of strings and returns an object with key names set to the elements in the array.
@@ -527,7 +562,20 @@ var mapArrayValues;
  * @param {Array}
  * @return {Object}
  */
-var mapStringCounts;
+var mapStringCounts = function mapStringCounts(arry) {
+  let obj = {
+
+  }
+  for (let x in arry) {
+    if (arry[x].length >= 5) {
+      obj[arry[x]] = true;
+    } else {
+      obj[arry[x]] = false;
+    }
+  }
+
+  return obj
+};
 
 /* #arrayToObjectNums
  *
@@ -537,7 +585,15 @@ var mapStringCounts;
  * @param {Array}
  * @return {Object}
  */
-var arrayToObjectNums;
+var arrayToObjectNums = function arrayToObjectNums(arry) {
+  let obj = {
+
+  }
+  for (let x in arry) {
+     obj[arry[x]] = true;
+  }
+  return obj;
+};
 
 /* #stringToKeys
  *
@@ -546,7 +602,16 @@ var arrayToObjectNums;
  * @param {String}
  * @return {Object}
  */
-var stringToKeys;
+var stringToKeys = function stringToKeys(str) {
+  let obj = {
+
+  }
+  for (let x of str) {
+    obj[x] = true;
+  }
+  return obj;
+};
+console.log(stringToKeys("hello world"))
 
 /* #charCountMap
  *
@@ -611,11 +676,11 @@ module.exports = {
   arrayToObject: arrayToObject,
   arraysToObject: arraysToObject,
   objectsToTuples: objectsToTuples,
-  mapArrayValues: null,
-  mapStringCounts: null,
-  arrayToObjectNums: null,
-  stringToKeys: null,
-  charCountMap: null,
-  frequencyMap: null,
-  tupleConvertToObject: null
+  mapArrayValues: mapArrayValues,
+  mapStringCounts: mapStringCounts,
+  arrayToObjectNums: arrayToObjectNums,
+  stringToKeys: stringToKeys,
+  charCountMap: charCountMap,
+  frequencyMap: frequencyMap,
+  tupleConvertToObject: tupleConvertToObject,
 }
