@@ -626,19 +626,32 @@ var charCountMap = function charCountMap(arry) {
 
   }
   for (let x in arry) {
-    obj[arry[x]] = arry[x].length
+    obj[arry[x]] = arry[x].length //grab elem in arry and return the str length
   }
-return obj;
+  return obj;
 };
 
 /* #frequencyMap
  *
  * takes in an array of strings and returns an object with the string as the key and the number of occurences as the value.
  *
- * @param {String}
+ * @param {String} // arry
  * @return {Object}
  */
-var frequencyMap;
+var frequencyMap = function frequencyMap(arry) {
+  let obj = {
+
+  }
+  for (let x in arry) {
+    for (let y in arry) {
+      if (x = y) {
+        
+      }
+    }
+  }
+
+  return obj;
+};
 
 /* #tupleConvertToObject
  *
